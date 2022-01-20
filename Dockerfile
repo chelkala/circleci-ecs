@@ -1,4 +1,4 @@
-FROM golang:latest as builder
+FROM circleci/golang:latest as builder
 
 # Application working directory ( Created if it doesn't exist )
 WORKDIR /build
