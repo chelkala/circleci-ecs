@@ -10,7 +10,7 @@ RUN go env -w GO111MODULE=auto
 # Installing custom packages from github
 RUN go get -d github.com/prometheus/client_golang/prometheus/promhttp
 # Execute instructions on a new layer on top of current image. Run in shell.
-RUN CGO_ENABLED=0 go build -a -installsuffix cgo --ldflags "-s -w" -o /build/
+RUN CGO_ENABLED=0 go build -a -installsuffix cgo --ldflags "-s -w" -o /build/main
 
 FROM alpine:3.9.4
 
