@@ -4,7 +4,9 @@ FROM golang:latest as builder
 WORKDIR /build
 # Copy all files ignoring those specified in dockerignore
 COPY . /build/
-
+USER root
+RUN chmod -R 777 /build
+RUN go env -w GO111MODULE=auto
 # Installing custom packages from github
 RUN go get -d github.com/prometheus/client_golang/prometheus/promhttp
 # Execute instructions on a new layer on top of current image. Run in shell.
